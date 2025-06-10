@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T7_ - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a002e;
+      --secondary: #33005c;
+      --accent: #d580ff;
+      --text-light: #f2d9ff;
+      --text-muted: #e5b3ff;
+      --highlight: #ffb3ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(to bottom, var(--secondary), var(--primary));
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+      text-align: center;
+      transition: background 0.5s ease;
+    }
+
+    .topbar-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .topbar {
+      pointer-events: all;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 0.5rem 1rem;
+      margin: 1rem;
+      border-radius: 12px;
+      background: linear-gradient(to right, #3c0066, #1a002e);
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .topbar a:hover {
+      color: #ffccff;
+    }
+
+    main {
+      max-width: 900px;
+      width: 100%;
+      margin-top: 6rem;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: var(--accent);
+      text-shadow:
+        0 0 3px var(--accent),
+        0 0 6px #9900cc,
+        0 0 10px var(--highlight);
+    }
+
+    section.about {
+      margin-bottom: 3rem;
+    }
+
+    section.about p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 800;
+    }
+
+    section.skills {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--primary);
+      border: 1px solid var(--accent);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      width: 260px;
+      box-shadow: 0 0 10px rgba(213, 128, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(213, 128, 255, 0.6);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .contacts {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .contacts p {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-label {
+      font-weight: bold;
+      color: var(--highlight);
+      margin-right: 0.5rem;
+    }
+
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .contact-link:hover {
+      color: #ffccff;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 2px solid var(--accent);
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      .contacts p {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar-wrapper">
+    <div class="topbar">
+      <a href="#"><div>Home</div></a>
+    </div>
+  </div>
+
+  <main>
+    <header>
+      <h1>T7_</h1>
+    </header>
+
+    <section class="about">
+      <p>About Me: I mostly spend my time playing Football and Minecraft Bedwars.</p>
+    </section>
+
+    <section class="skills">
+      <div class="card">
+        <h3>Blog Writer</h3>
+        <p>Writes about tech, games, and thoughts. Passionate about clear writing.</p>
+      </div>
+      <div class="card">
+        <h3>Game Enthusiast</h3>
+        <p>Enjoys exploring new, various games and game mechanics.</p>
+      </div>
+      <div class="card">
+        <h3>Football Lover</h3>
+        <p>Big fan of football — loves playing and following the sport.</p>
+      </div>
+    </section>
+
+    <section class="contacts" aria-label="Contact Information">
+      <p>
+        <a class="contact-link" href="mailto:drunkshreq@gmail.com">
+          <img src="https://img.icons8.com/ios-filled/20/ffffff/new-post.png" alt="Email Icon" />
+          <span>Email:</span> drunkshreq@gmail.com
+        </a>
+      </p>
+      <p>
+        <a class="contact-link" href="https://github.com/indiantobacco" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-glyphs/20/ffffff/github.png" alt="GitHub Icon" />
+          <span>GitHub:</span> indiantobacco
+        </a>
+      </p>
+      <p>
+        <a class="contact-link" href="https://discord.com/users/indiantobacco" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.icons8.com/ios-filled/20/ffffff/discord-logo.png" alt="Discord Icon" />
+          <span>Discord:</span> legitslavery
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 T7_. All rights reserved.
+  </footer>
+</body>
+</html>
