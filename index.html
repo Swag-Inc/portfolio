@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zylwer - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1a002e;
-      --secondary: #33005c;
-      --accent: #d580ff;
-      --text-light: #f2d9ff;
-      --text-muted: #e5b3ff;
-      --highlight: #ffb3ff;
+      --primary: #1a1a1a;
+      --secondary: #262626;
+      --accent: #6c63ff;
+      --text-light: #f0f0f0;
+      --text-muted: #bbbbbb;
+      --highlight: #9a8cff;
+      --background-dark: #121212;
     }
 
     * {
@@ -22,245 +23,235 @@
     }
 
     body {
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(to bottom, var(--secondary), var(--primary));
+      font-family: 'Rubik', sans-serif;
+      background: var(--background-dark);
       color: var(--text-light);
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      line-height: 1.5;
-      padding: 2rem 1rem;
-      text-align: center;
-      transition: background 0.5s ease;
-    }
-
-    .topbar-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      z-index: 1000;
-      pointer-events: none;
-    }
-
-    .topbar {
-      pointer-events: all;
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      padding: 0.5rem 1rem;
-      margin: 1rem;
-      border-radius: 12px;
-      background: linear-gradient(to right, #3c0066, #1a002e);
-      color: var(--accent);
-      font-size: 1rem;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    }
-
-    .topbar a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .topbar a:hover {
-      color: #ffccff;
-    }
-
-    main {
-      max-width: 900px;
-      width: 100%;
-      margin-top: 6rem;
     }
 
     header {
-      margin-bottom: 3rem;
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 1rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      color: var(--accent);
-      text-shadow:
-        0 0 3px var(--accent),
-        0 0 6px #9900cc,
-        0 0 10px var(--highlight);
-    }
-
-    section.about {
-      margin-bottom: 3rem;
-    }
-
-    section.about p {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto;
-      font-weight: 800;
-    }
-
-    section.skills {
+      background: linear-gradient(145deg, #1f1f1f, #141414);
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      align-items: center;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    nav {
+      display: flex;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background: #2b2b2b;
+      color: #ffffff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--highlight);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
-      background: var(--primary);
-      border: 1px solid var(--accent);
-      border-radius: 1rem;
+      background: #1f1f1f;
       padding: 1.5rem;
-      width: 260px;
-      box-shadow: 0 0 10px rgba(213, 128, 255, 0.3);
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
+      border: 1px solid var(--accent);
       transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px rgba(213, 128, 255, 0.6);
+      transform: translateY(-3px);
     }
 
     .card h3 {
       color: var(--accent);
+      margin-bottom: 0.8rem;
       font-size: 1.1rem;
-      margin-bottom: 0.6rem;
     }
 
     .card p {
-      font-size: 0.85rem;
       color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
     .contacts {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
+      background: none;
+      text-align: center;
+      padding: 3.5rem 1.5rem 5rem;
     }
 
-    .contacts p {
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contact-label {
-      font-weight: bold;
+    .contacts h3 {
       color: var(--highlight);
-      margin-right: 0.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
     }
 
     .contact-link {
-      color: var(--accent);
+      display: inline-block;
+      margin: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.75rem;
+      background: #1f1f1f;
+      color: var(--text-light);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(108, 99, 255, 0.4);
       text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.9rem;
-      transition: color 0.3s;
+      justify-content: center;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1rem;
     }
 
     .contact-link:hover {
-      color: #ffccff;
+      background: var(--accent);
+      color: #1f1f1f;
+      transform: scale(1.05);
     }
 
     footer {
       margin-top: auto;
-      padding: 1rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      border-top: 2px solid var(--accent);
-      width: 100%;
-      max-width: 900px;
+      background: linear-gradient(to right, #2b2b2b, #191919);
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.6);
+      border-radius: 18px 18px 0 0;
+      font-size: 0.85rem;
       text-align: center;
     }
 
+    footer p {
+      color: var(--text-muted);
+      margin: 0.5rem;
+    }
+
     @media (max-width: 600px) {
-      .topbar {
-        flex-direction: column;
-        gap: 0.5rem;
+      .hero h1 {
+        font-size: 1.5rem;
       }
 
-      .card {
-        width: 100%;
+      .hero p {
+        font-size: 0.9rem;
       }
 
-      .contacts p {
-        flex-direction: column;
-        align-items: flex-start;
+      .contact-link {
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="topbar-wrapper">
-    <div class="topbar">
-      <a href="#"><div>Home</div></a>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Zylwer</h1>
+    <p>About Me: I mostly spend my time playing Football and Minecraft Bedwars.</p>
+  </section>
+
+  <section class="skills">
+    <div class="card">
+      <h3>Blog Writer</h3>
+      <p>Writes about tech, games, and thoughts. Passionate about clear writing.</p>
     </div>
-  </div>
+    <div class="card">
+      <h3>Game Enthusiast</h3>
+      <p>Enjoys exploring new, various games and game mechanics.</p>
+    </div>
+    <div class="card">
+      <h3>Football Lover</h3>
+      <p>Big fan of football — loves playing and following the sport.</p>
+    </div>
+  </section>
 
-  <main>
-    <header>
-      <h1>Zylwer</h1>
-    </header>
-
-    <section class="about">
-      <p>About Me: I mostly spend my time playing Football and Minecraft Bedwars.</p>
-    </section>
-
-    <section class="skills">
-      <div class="card">
-        <h3>Blog Writer</h3>
-        <p>Writes about tech, games, and thoughts. Passionate about clear writing.</p>
-      </div>
-      <div class="card">
-        <h3>Game Enthusiast</h3>
-        <p>Enjoys exploring new, various games and game mechanics.</p>
-      </div>
-      <div class="card">
-        <h3>Football Lover</h3>
-        <p>Big fan of football — loves playing and following the sport.</p>
-      </div>
-    </section>
-
-    <section class="contacts" aria-label="Contact Information">
-      <p>
-        <a class="contact-link" href="mailto:drunkshreq@gmail.com">
-          <img src="https://img.icons8.com/ios-filled/20/ffffff/new-post.png" alt="Email Icon" />
-          <span>Email:</span> drunkshreq@gmail.com
-        </a>
-      </p>
-      <p>
-        <a class="contact-link" href="https://github.com/zylwer" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.icons8.com/ios-glyphs/20/ffffff/github.png" alt="GitHub Icon" />
-          <span>GitHub:</span> zylwer
-        </a>
-      </p>
-      <p>
-        <a class="contact-link" href="https://discord.com/users/indiantobacco" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.icons8.com/ios-filled/20/ffffff/discord-logo.png" alt="Discord Icon" />
-          <span>Discord:</span> zylwer
-        </a>
-      </p>
-    </section>
-  </main>
+  <section class="contacts">
+    <h3>Contact Information</h3>
+    <a class="contact-link" href="mailto:drunkshreq@gmail.com">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="white"/>
+        <path d="M7 9L12 13L17 9V7L12 11L7 7V9Z" fill="#EA4335"/>
+        <path d="M7 9V15C7 16.1 7.9 17 9 17H15C16.1 17 17 16.1 17 15V9L12 13L7 9Z" fill="#4285F4"/>
+        <path d="M7 9L12 13V17H9C7.9 17 7 16.1 7 15V9Z" fill="#0F9D58"/>
+        <path d="M17 9L12 13V17H15C16.1 17 17 16.1 17 15V9Z" fill="#F4B400"/>
+      </svg>
+      <span>Email: drunkshreq@gmail.com</span>
+    </a>
+    <a class="contact-link" href="https://github.com/zylwer" target="_blank" rel="noopener noreferrer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58 4 4 7.58 4 12C4 15.54 6.29 18.53 9.47 19.59C9.87 19.66 10.02 19.42 10.02 19.21V17.77C7.81 18.24 7.37 16.62 7.37 16.62C7.01 15.79 6.49 15.55 6.49 15.55C5.78 15.07 6.55 15.08 6.55 15.08C7.34 15.14 7.73 15.91 7.73 15.91C8.44 17.17 9.59 16.81 10.06 16.62C10.13 16.11 10.33 15.75 10.56 15.56C8.84 15.37 7.03 14.69 7.03 11.57C7.03 10.79 7.33 10.15 7.74 9.65C7.66 9.45 7.38 8.63 7.82 7.5C7.82 7.5 8.49 7.29 10.02 8.39C10.66 8.22 11.34 8.13 12.02 8.13C12.7 8.13 13.38 8.22 14.02 8.39C15.55 7.29 16.22 7.5 16.22 7.5C16.66 8.63 16.38 9.45 16.3 9.65C16.71 10.15 17.01 10.79 17.01 11.57C17.01 14.7 15.19 15.37 13.46 15.56C13.76 15.81 14.02 16.3 14.02 17.05V19.21C14.02 19.42 14.17 19.67 14.58 19.59C17.75 18.53 20.04 15.54 20.04 12C20.04 7.58 16.46 4 12.02 4H12Z" fill="#181717"/>
+      </svg>
+      <span>GitHub: zylwer</span>
+    </a>
+    <a class="contact-link" href="https://discord.com/users/zylwer" target="_blank" rel="noopener noreferrer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="white"/>
+        <path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4C14.83 4.29 14.64 4.66 14.5 4.96C12.93 4.73 11.38 4.73 9.84 4.96C9.7 4.66 9.5 4.29 9.33 4C7.83 4.26 6.39 4.71 5.06 5.33C2.44 9.25 1.73 13.06 2.11 16.82C3.81 18.07 5.46 18.86 7.08 19.36C7.46 18.85 7.8 18.31 8.1 17.74C7.58 17.54 7.08 17.3 6.61 17.02C6.74 16.92 6.86 16.82 6.98 16.72C10.25 18.25 13.89 18.25 17.12 16.72C17.24 16.82 17.36 16.92 17.49 17.02C17.02 17.3 16.52 17.54 16 17.74C16.3 18.31 16.64 18.85 17.02 19.36C18.64 18.86 20.29 18.07 21.99 16.82C22.43 12.5 21.32 8.73 19.27 5.33ZM8.68 14.81C7.69 14.81 6.88 13.89 6.88 12.78C6.88 11.67 7.67 10.75 8.68 10.75C9.69 10.75 10.5 11.67 10.48 12.78C10.48 13.89 9.69 14.81 8.68 14.81ZM15.42 14.81C14.43 14.81 13.62 13.89 13.62 12.78C13.62 11.67 14.41 10.75 15.42 10.75C16.43 10.75 17.24 11.67 17.22 12.78C17.22 13.89 16.43 14.81 15.42 14.81Z" fill="#5865F2"/>
+      </svg>
+      <span>Discord: zylwer</span>
+    </a>
+  </section>
 
   <footer>
-    &copy; 2025 Zylwer. All rights reserved.
+    <p>&copy; 2025 Zylwer. All rights reserved.</p>
   </footer>
 </body>
 </html>
