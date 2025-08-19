@@ -3,234 +3,221 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zylwer - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+  <title>drunkshrek</title>
+
+  <!-- Geist Mono Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --surface: #1b1b1b;
-      --accent: #6c63ff;
-      --highlight: #9a8cff;
-      --text: #f0f0f0;
-      --muted: #999;
-      --border: rgba(108, 99, 255, 0.3);
-      --glow: 0 0 10px var(--accent);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Rubik', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Geist Mono', monospace;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    header {
-      background: #111;
-      padding: 1rem 2rem;
+    /* Navbar */
+    nav {
       display: flex;
       justify-content: center;
-      align-items: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      gap: 2rem;
+      padding: 1rem;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
-      color: var(--text);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      color: #ddd;
+      font-size: 0.95rem;
+      transition: color 0.2s;
     }
 
     nav a:hover {
-      background-color: #2a2a2a;
-      box-shadow: 0 0 8px rgba(108, 99, 255, 0.6);
+      color: #fff;
     }
 
-    h2.section-title {
-      text-align: center;
-      font-size: 2.8rem;
-      color: var(--highlight);
-      margin: 4rem 0 2rem;
-      text-shadow: var(--glow);
-    }
-
-    .main-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .section {
-      background: var(--surface);
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px var(--border);
-    }
-
-    .section-title-sub {
-      text-align: center;
-      font-size: 1.8rem;
-      color: var(--highlight);
-      margin-bottom: 1.5rem;
-    }
-
-    .role-list, .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .role-item {
+    /* Header with logo */
+    header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 1rem;
-      background: #111;
-      padding: 0.75rem 1rem;
-      border-radius: 0.75rem;
-      border: 1px solid var(--border);
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #fff;
+      text-align: center;
+    }
+
+    header img {
+      height: 70px;
+      width: 70px;
+      object-fit: contain;
+    }
+
+    /* Container */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
     }
 
     .card {
       background: #111;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 8px var(--border);
-      transition: transform 0.3s ease;
+      border-radius: 12px;
+      padding: 1.2rem;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
-      color: var(--accent);
+    .card h2 {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      color: #ccc;
     }
 
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-
-    .contacts {
-      text-align: center;
-      margin: 4rem auto;
+    .about-item, .more-item {
       background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 15px var(--border);
-      max-width: 400px;
+      padding: 0.6rem 0.9rem;
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .contacts h3 {
-      font-size: 1.5rem;
-      color: var(--highlight);
-      margin-bottom: 1.5rem;
+    .about-item i, .more-item i {
+      color: #aaa;
+    }
+
+    .about-item span, .more-item span {
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+
+    .more-item strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .contact h2 {
+      color: #ccc;
+      margin-bottom: 1rem;
     }
 
     .contact-icons {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.2rem;
     }
 
-    .contact-icons a img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s, filter 0.3s;
+    .contact-icons a {
+      background: #111;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 1.3rem;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .contact-icons a:hover img {
-      transform: scale(1.15);
-      filter: brightness(1.2) drop-shadow(0 0 6px var(--accent));
+    .contact-icons a:hover {
+      background: #fff;
+      color: #000;
     }
 
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 2rem;
-      background: #101010;
-      color: var(--muted);
-      font-size: 0.85rem;
-      border-top: 1px solid #222;
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navbar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Header -->
   <header>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#contacts">Contacts</a>
-    </nav>
+    <h1>Hey, I'm drunkshrek</h1>
+    <img src="discord-avatar-512-DZDY6.png" alt="Discord Logo">
   </header>
 
-  <h2 class="section-title">Zylwer</h2>
+  <div id="about" class="container">
+    <!-- About Me -->
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="about-item"><i class="fa-solid fa-crown"></i><span>Owner @ Ethereal Cove</span></div>
+      <div class="about-item"><i class="fa-solid fa-crown"></i><span>Owner @ DrS</span></div>
+      <div class="about-item"><i class="fa-solid fa-handshake"></i><span>Partner @ zeroUI</span></div>
+      <div class="about-item"><i class="fa-solid fa-handshake"></i><span>Partner @ TOP LM</span></div>
+      <div class="about-item"><i class="fa-solid fa-user-gear"></i><span>Staff @ CM Client</span></div>
+      <div class="about-item"><i class="fa-solid fa-user-gear"></i><span>Staff @ Inferno</span></div>
+      <div class="about-item"><i class="fa-solid fa-user-gear"></i><span>Staff @ Fusion Tier Tests</span></div>
+    </div>
 
-  <div class="main-container">
-
-    <section class="section">
-      <h3 class="section-title-sub">About Me</h3>
-      <div class="role-list">
-        <div class="role-item">👑 Owner @ Ethereal Cove</div>
-        <div class="role-item">👑 Owner @ DrS</div>
-        <div class="role-item">👾 Partner @ zeroUI</div>
-        <div class="role-item">👾 Partner @ TOP LM</div>
-        <div class="role-item">🧩 Staff @ CM Client</div>
-        <div class="role-item">🧩 Staff @ Inferno</div>
-        <div class="role-item">🧩 Staff @ Fusion Tier Tests</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3 class="section-title-sub">More About Me</h3>
-      <div class="cards">
-        <div class="card">
-          <h3>Blog Writer</h3>
-          <p>Writes about tech, games, and thoughts. Passionate about clear writing.</p>
-        </div>
-        <div class="card">
-          <h3>Game Enthusiast</h3>
-          <p>Enjoys exploring new, various games and game mechanics.</p>
-        </div>
-        <div class="card">
-          <h3>Football Lover</h3>
-          <p>Big fan of football — loves playing and following the sport.</p>
+    <!-- More About Me -->
+    <div class="card">
+      <h2>More About Me</h2>
+      <div class="more-item">
+        <div>
+          <strong>Blog Writer</strong>
+          <span>Writes about tech, games, and thoughts. Passionate about clear writing.</span>
         </div>
       </div>
-    </section>
-
+      <div class="more-item">
+        <div>
+          <strong>Game Enthusiast</strong>
+          <span>Enjoys exploring new, various games and game mechanics.</span>
+        </div>
+      </div>
+      <div class="more-item">
+        <div>
+          <strong>Football Lover</strong>
+          <span>Big fan of football — loves playing and following the sport.</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <section class="contacts" id="contacts">
-    <h3>Contacts</h3>
+  <!-- Contacts -->
+  <div id="contact" class="contact">
+    <h2>Contact</h2>
     <div class="contact-icons">
-      <a href="mailto:drunkshreq@gmail.com"><img src="https://img.icons8.com/fluency-systems-filled/48/new-post.png" alt="Email"/></a>
-      <a href="https://github.com/zylwer" target="_blank"><img src="https://img.icons8.com/ios-glyphs/48/github.png" alt="GitHub"/></a>
-      <a href="https://discord.com/users/zylwer" target="_blank"><img src="https://img.icons8.com/ios-glyphs/48/discord-logo.png" alt="Discord"/></a>
+      <a href="https://discord.com/users/wvix" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://github.com/drunkshrek" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:drunkshreq@gmail.com"><i class="fa-solid fa-envelope"></i></a>
     </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Zylwer. All rights reserved.
-  </footer>
+  </div>
 
 </body>
 </html>
+
